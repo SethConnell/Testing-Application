@@ -1,5 +1,4 @@
 <?php
-	
 	$signup_name = "name";
 	$signup_password1 = "password";
 	$signup_password2 = "verifypassword";
@@ -76,10 +75,10 @@
 	
 	function createTestTableIfDoesNotExist($tablename) {
 	    global $conn;
-	    $query = "SELECT ID FROM USERS";
+	    $query = "SELECT ID FROM $tablename";
         $result = mysqli_query($conn, $query);
         if(empty($result)) {
-		$sql = "CREATE TABLE " . "`$tablename` ( 
+		$sql = "CREATE TABLE " . "`$tablename`" . "( 
 		    `question1_question` text NOT NULL, 
     		`question1_a` text NOT NULL,
     		`question1_b` text NOT NULL,
@@ -223,7 +222,15 @@
     	    `id` MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY
     	)";
 		send_query($conn, $sql);
-        };
+		$_POST['worked'] = 'true';
+		
+		} 
+		else {
+			echo "<script language='javascript' type='text/javascript'>";
+			echo "alert('Looks like that name is taken. Please name it something else.')";
+			echo "</script>";
+			
+		}
 	}
 
 	$signupForm = "<div class = 'boxy'>
@@ -265,7 +272,7 @@
 	</div>";
 
 	$CreateTestForm = <<<"BOOM"
-	Question: <input type='text' name='name' class = 'searchbox'><br>
+	Name: <input type='text' name='name' class = 'searchbox'><br>
 	<h1>1.</h1>
 <div class = "problem">
 			Question: <input type='text' name='question1_question' class = 'searchbox'><br>

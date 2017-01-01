@@ -2,6 +2,7 @@
     session_start();
     if (isset($_SESSION['id'])) {
 		header('Location: home.php');
+		exit();
 		session_write_close();
 		}
     ini_set('display_errors', 1);
@@ -18,6 +19,7 @@
             $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
         }
         header($pageURL);
+		exit();
     }
     
     // If everything is in order, continue.
@@ -147,6 +149,7 @@
 	}
 	else {
 		header('Location: home.php');
+		exit();
 	}
 	?>
 

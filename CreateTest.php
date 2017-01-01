@@ -1,7 +1,15 @@
+<?php
+	if (isset($_POST['worked']) && $_POST['worked'] == 'true') {
+		header('testcreatedsuccessfully.php');
+		exit();
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	<script href = "jquery.js"></script>
+	<script href = "appenderror.js"></script>
 	<style>
 		input {
 			color: black;
@@ -83,6 +91,14 @@
 		font-size: 15px;
 		font-family: sans-serif;
 	}
+		
+	.error {
+		color: red;
+		font-size: 100px;
+		font-family: cursive;
+		text-align: center;
+	}
+		
 	a {
 		text-decoration: underline;
 	}
@@ -95,6 +111,7 @@
             text-align: center;
         }
     </style>
+	<div class = "error"></div>
 	<div class = 'boxy'>
 	<br>
     <h1 class = 'message'>Create Test</h1>
@@ -245,9 +262,10 @@
 					  $_POST['question20_type'], 
 					  $_POST['question20_answer']
 					 )) {
-				createTestTableIfDoesNotExist();
+				$testname = $_POST['name'];
+				createTestTableIfDoesNotExist($testname);
 				
-				$sql = "INSERT INTO" . $_POST['name'] . "(`question1_question`, `question1_a`, `question1_b`, `question1_c`, `question1_d`, `question1_type`, `question1_answer`, `question2_question`, `question2_a`, `question2_b`, `question2_c`, `question2_d`, `question2_type`, `question2_answer`, `question3_question`, `question3_a`, `question3_b`, `question3_c`, `question3_d`, `question3_type`, `question3_answer`, `question4_question`, `question4_a`, `question4_b`, `question4_c`, `question4_d`, `question4_type`, `question4_answer`, `question5_question`, `question5_a`, `question5_b`, `question5_c`, `question5_d`, `question5_type`, `question5_answer`, `question6_question`, `question6_a`, `question6_b`, `question6_c`, `question6_d`, `question6_type`, `question6_answer`, `question7_question`, `question7_a`, `question7_b`, `question7_c`, `question7_d`, `question7_type`, `question7_answer`, `question8_question`, `question8_a`, `question8_b`, `question8_c`, `question8_d`, `question8_type`, `question8_answer`, `question9_question`, `question9_a`, `question9_b`, `question9_c`, `question9_d`, `question9_type`, `question9_answer`, `question10_question`, `question10_a`, `question10_b`, `question10_c`, `question10_d`, `question10_type`, `question10_answer`, `question11_question`, `question11_a`, `question11_b`, `question11_c`, `question11_d`, `question11_type`, `question11_answer`, `question12_question`, `question12_a`, `question12_b`, `question12_c`, `question12_d`, `question12_type`, `question12_answer`, `question13_question`, `question13_a`, `question13_b`, `question13_c`, `question13_d`, `question13_type`, `question13_answer`, `question14_question`, `question14_a`, `question14_b`, `question14_c`, `question14_d`, `question14_type`, `question14_answer`, `question15_question`, `question15_a`, `question15_b`, `question15_c`, `question15_d`, `question15_type`, `question15_answer`, `question16_question`, `question16_a`, `question16_b`, `question16_c`, `question16_d`, `question16_type`, `question16_answer`, `question17_question`, `question17_a`, `question17_b`, `question17_c`, `question17_d`, `question17_type`, `question17_answer`, `question18_question`, `question18_a`, `question18_b`, `question18_c`, `question18_d`, `question18_type`, `question18_answer`, `question19_question`, `question19_a`, `question19_b`, `question19_c`, `question19_d`, `question19_type`, `question19_answer`, `question20_question`, `question20_a`, `question20_b`, `question20_c`, `question20_d`, `question20_type`, `question20_answer`)
+				$sql = "INSERT INTO " . $testname . "(`question1_question`, `question1_a`, `question1_b`, `question1_c`, `question1_d`, `question1_type`, `question1_answer`, `question2_question`, `question2_a`, `question2_b`, `question2_c`, `question2_d`, `question2_type`, `question2_answer`, `question3_question`, `question3_a`, `question3_b`, `question3_c`, `question3_d`, `question3_type`, `question3_answer`, `question4_question`, `question4_a`, `question4_b`, `question4_c`, `question4_d`, `question4_type`, `question4_answer`, `question5_question`, `question5_a`, `question5_b`, `question5_c`, `question5_d`, `question5_type`, `question5_answer`, `question6_question`, `question6_a`, `question6_b`, `question6_c`, `question6_d`, `question6_type`, `question6_answer`, `question7_question`, `question7_a`, `question7_b`, `question7_c`, `question7_d`, `question7_type`, `question7_answer`, `question8_question`, `question8_a`, `question8_b`, `question8_c`, `question8_d`, `question8_type`, `question8_answer`, `question9_question`, `question9_a`, `question9_b`, `question9_c`, `question9_d`, `question9_type`, `question9_answer`, `question10_question`, `question10_a`, `question10_b`, `question10_c`, `question10_d`, `question10_type`, `question10_answer`, `question11_question`, `question11_a`, `question11_b`, `question11_c`, `question11_d`, `question11_type`, `question11_answer`, `question12_question`, `question12_a`, `question12_b`, `question12_c`, `question12_d`, `question12_type`, `question12_answer`, `question13_question`, `question13_a`, `question13_b`, `question13_c`, `question13_d`, `question13_type`, `question13_answer`, `question14_question`, `question14_a`, `question14_b`, `question14_c`, `question14_d`, `question14_type`, `question14_answer`, `question15_question`, `question15_a`, `question15_b`, `question15_c`, `question15_d`, `question15_type`, `question15_answer`, `question16_question`, `question16_a`, `question16_b`, `question16_c`, `question16_d`, `question16_type`, `question16_answer`, `question17_question`, `question17_a`, `question17_b`, `question17_c`, `question17_d`, `question17_type`, `question17_answer`, `question18_question`, `question18_a`, `question18_b`, `question18_c`, `question18_d`, `question18_type`, `question18_answer`, `question19_question`, `question19_a`, `question19_b`, `question19_c`, `question19_d`, `question19_type`, `question19_answer`, `question20_question`, `question20_a`, `question20_b`, `question20_c`, `question20_d`, `question20_type`, `question20_answer`)
 				VALUES ('" . $_POST['question1_question'] . "'," . "'" . $_POST['question1_a'] . "'," . "'" . $_POST['question1_b'] . "'," . "'" . $_POST['question1_c'] . "'," . "'" . $_POST['question1_d'] . "'," . "'" . $_POST['question1_type'] . "'," . "'" . $_POST['question1_answer'] . "'," . "'" . $_POST['question2_question'] . "'," . 
 					"'" . $_POST['question2_a'] . "'," .
 					"'" . $_POST['question2_b'] . "'," . 

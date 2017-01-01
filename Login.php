@@ -4,6 +4,7 @@
 	if (isset($_POST["password"]) && isset($_POST["email"])) {
 	    if (ifLoggedIn() == true) {
 	        header("Location: home.php");
+			exit();
 	    }
 	};
     ini_set('display_errors', 1);
@@ -18,6 +19,7 @@
             $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
         }
         header($pageURL);
+		exit();
     }
     
     // Checks if password or email is empty.
@@ -40,6 +42,7 @@
         		$passwordvar = stored_password($typed_email);
 				$_SESSION['password'] = $passwordvar;
 				header("Location: home.php");
+				exit();
             }
 			else {
 				 echo "Password incorrect.";
