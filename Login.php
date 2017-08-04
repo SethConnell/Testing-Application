@@ -43,13 +43,16 @@
 				 echo "Password incorrect.";
 			}
 		 }
+		else {
+			echo "Account doesn't exist.";
+		}
 	}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Title of the document</title>
+<title>Student Login</title>
 </head>
 <body>
     <style>
@@ -57,7 +60,7 @@
             text-align: center;
         }
     </style>
-    <h1>Sign In As Teacher</h1>
+    <h1>Sign In As Student</h1>
     <br>
     <form action="Login.php" method="POST">
     Email: <input type="text" name="email"><br>
