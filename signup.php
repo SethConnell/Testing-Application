@@ -106,7 +106,9 @@
 	}
 
 	.searchbutton {
-		width: 200px;
+		width: 100px;
+		padding-bottom: 5px;
+		margin-top: 15px;
 		display: flex-box;
 		text-align: center;
 		margin-bottom: 20px;
@@ -147,7 +149,7 @@
     Password: <input type="password" name="password" class = "searchbox"><br>
 	Verify Password: <input type="password" name="verifypassword" class = "searchbox"><br>
     <input type="submit" class = "searchbutton">
-	<a href = "Login.php">Log in as student.</a>
+	<br>
     </form>
 </div>
 </body>
