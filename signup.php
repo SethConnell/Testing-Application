@@ -1,7 +1,7 @@
 <?php
     session_start();
     if (isset($_SESSION['id'])) {
-		echo "<a href='signout.php'>Logout</a>";
+		header('Location: home.php');
 		session_write_close();
 		}
     ini_set('display_errors', 1);
@@ -34,16 +34,17 @@
 		$result = mysqli_query($conn, "SELECT * FROM usertable WHERE email='$email'");
 		if (!mysqli_num_rows($result)) {
 			createTableIfDoesNotExist();
+			$password1 = hashpassword($password1);
 			$sql = "INSERT INTO usertable (email, password, name, is_teacher)
-    		VALUES ('$name', '$password1', '$name', 'n');";
+    		VALUES ('$email','$password1', '$name', 'n');";
 			send_query($conn, $sql);
-			$user_id = mysqli_query($conn, "SELECT id FROM usertable WHERE email='$typed_email'");
+			$user_id = mysqli_query($conn, "SELECT id FROM usertable WHERE email='$email'");
 			$_SESSION['id'] = $user_id;
 			mysqli_close($conn);
 			echo "Everything worked successfully.";
 		}
 		else {
-			echo "What kind of bullshit is this?!!";
+			echo "What kind of bullshit is this?!! You already have an account.";
 		}
 	}
 ?>
@@ -139,19 +140,16 @@
 		text-decoration: underline;
 	}
 </style>
-<div class = "boxy">
-	<br>
-    <h1 class = "message">Sign Up As Student</h1>
-    <br>
-    <form action="signup.php" method="POST">
-	First name: <input type="text" name="name" class = "searchbox"><br>
-    Email: <input type="text" name="email" class = "searchbox"><br>
-    Password: <input type="password" name="password" class = "searchbox"><br>
-	Verify Password: <input type="password" name="verifypassword" class = "searchbox"><br>
-    <input type="submit" class = "searchbutton">
-	<br>
-    </form>
-</div>
+	<?php
+	if (!isset($_SESSION['id'])) {
+		echo $signupForm;
+		echo "<p>Already a user? <a href='Login.php'>Login</a>";
+	}
+	else {
+		header('Location: home.php');
+	}
+	?>
+
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <?php
+	session_start();
+	require('functions.php');
 	if (isset($_SESSION['id'])) {
 		echo "<a href='signout.php'>Logout</a>";
 		session_write_close();
@@ -80,13 +82,11 @@
 
 <body>
 	<div class = "container">
-		<div class = "boxy">
-        <br>
-        <h1 class = "message">You haven't logged in yet.</h1>
-		<br>
-        <a href = "signup.php"><div class = "searchbutton">Create Account.</div></a>
-		<a href = "Login.php"><div class = "searchbutton">Log in.</div></a>
-        <br>
+		<?php
+		if (!isset($_SESSION['id'])) {
+			echo $notLoggedIn;
+		}
+		?>
     </div>
 </body>
 

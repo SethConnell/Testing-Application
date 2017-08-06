@@ -1,14 +1,13 @@
 <?php
-    session_start();
-    if (isset($_SESSION['id'])) {
-		echo "<a href='signout.php'>Logout</a>";
+	session_start();
+	if (isset($_SESSION['id'])) {
+		header('Location: home.php');
 		session_write_close();
 		}
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 	require('functions.php');
-	
     // Force HTTPS for security
     if($_SERVER["HTTPS"] != "on") {
         $pageURL = "Location: https://";
@@ -37,7 +36,7 @@
             if (password_verify($typed_password, stored_password($typed_email))) {
         		$user_id = mysqli_query($conn, "SELECT id FROM usertable WHERE email='$typed_email'");
         		$_SESSION['id'] = $user_id;
-        		mysqli_close($conn);
+				header( 'Location: home.php');
             }
 			else {
 				 echo "Password incorrect.";
@@ -145,17 +144,9 @@
             text-align: center;
         }
     </style>
-	<div class = "boxy">
-	<br>
-	<h1 class = "message">Sign In As Student</h1>
-    <br>
-    <form action="Login.php" method="POST">
-    Email: <input type="text" name="email" class = "searchbox"><br>
-    Password: <input type="text" name="password" class = "searchbox"><br>
-    <input type="submit" class = "searchbutton">
-	<br>
-    </form>
-	</div>
+	<?php
+	echo $loginForm;
+	?>
 </body>
 
 </html>

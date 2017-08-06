@@ -39,6 +39,12 @@
 		$oldpassword = password_hash($oldpassword, PASSWORD_BCRYPT);
 		return $oldpassword;
 	};
+  	function ifLoggedIn() {
+		 if (isset($_SESSION['id'])) {
+			echo "<a href='signout.php'>Logout</a>";
+			session_write_close();
+		}
+	};
 	// This function creates a table if it does not already exist.
 	// Great for testing.
 	function createTableIfDoesNotExist(){
@@ -53,4 +59,39 @@
 		)";
 		send_query($conn, $sql);
 	}
+
+	$signupForm = "<div class = 'boxy'>
+	<br>
+    <h1 class = 'message'>Sign Up As Student</h1>
+    <br>
+    <form action='signup.php' method='POST'>
+	First name: <input type='text' name='name' class = 'searchbox'><br>
+    Email: <input type='text' name='email' class = 'searchbox'><br>
+    Password: <input type='password' name='password' class = 'searchbox'><br>
+	Verify Password: <input type='password' name='verifypassword' class = 'searchbox'><br>
+    <input type='submit' class = 'searchbutton'>
+	<br>
+    </form>
+	</div>";
+
+	$loginForm = "<div class = 'boxy'>
+	<br>
+	<h1 class = 'message'>Sign In As Student</h1>
+    <br>
+    <form action='Login.php' method='POST'>
+    Email: <input type='text' name='email' class = 'searchbox'><br>
+    Password: <input type='password' name='password' class = 'searchbox'><br>
+    <input type='submit' class = 'searchbutton'>
+	<br>
+    </form>
+	</div>";
+
+	$notLoggedIn = "<div class = 'boxy'>
+        <br>
+        <h1 class = 'message'>You haven't logged in yet.</h1>
+		<br>
+        <a href = 'signup.php'><div class = 'searchbutton'>Create Account.</div></a>
+		<a href = 'Login.php'><div class = 'searchbutton'>Log in.</div></a>
+        <br>
+		</div>";
 ?>
