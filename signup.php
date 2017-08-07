@@ -33,7 +33,7 @@
 		// Check to see if login is valid.
 		$result = mysqli_query($conn, "SELECT * FROM usertable WHERE email='$email'");
 		if (!mysqli_num_rows($result)) {
-			createTableIfDoesNotExist();
+			createUserTableIfDoesNotExist();
 			$password1 = hashpassword($password1);
 			$sql = "INSERT INTO usertable (email, password, name, is_teacher)
     		VALUES ('$email','$password1', '$name', 'n');";
@@ -106,10 +106,8 @@
 		color: #4CC2EF;
 	}
 
-	.searchbutton {
+	.searchbutton, input[type=submit] {
 		width: 100px;
-		padding-bottom: 5px;
-		margin-top: 15px;
 		display: flex-box;
 		text-align: center;
 		margin-bottom: 20px;
@@ -117,15 +115,17 @@
 		background-color: white;
 		border-style: solid;
 		border-width: 2px 2px 2px 2px;
-		height: 30px;
-		line-height: 30px;
+		height: 45px;
+		line-height: 40px;
+		margin-top: 25px;
 	}
 
-	.searchbutton:hover {
+	.searchbutton:hover, input[type=submit]:hover {
 		border-color: white;
 		color: white;
 		background-color: #4CC2EF;
 	}
+		
 
 	.catagory {
 		font-size: 30px;
@@ -143,7 +143,6 @@
 	<?php
 	if (!isset($_SESSION['id'])) {
 		echo $signupForm;
-		echo "<p>Already a user? <a href='Login.php'>Login</a>";
 	}
 	else {
 		header('Location: home.php');

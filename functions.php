@@ -47,13 +47,22 @@
 	};
 	// This function creates a table if it does not already exist.
 	// Great for testing.
-	function createTableIfDoesNotExist(){
+	function createUserTableIfDoesNotExist(){
 		global $conn;
 		$sql = "CREATE TABLE IF NOT EXISTS usertable(
 		    email text NOT NULL,
 		    password text NOT NULL,
 		    name text NOT NULL,
 			is_teacher text NOT NULL,
+		    id MEDIUMINT NOT NULL AUTO_INCREMENT,
+		    primary key (id)
+		)";
+		send_query($conn, $sql);
+	};
+	
+	function createTestTableIfDoesNotExist() {
+		$sql = "CREATE TABLE IF NOT EXISTS testtable(
+		    email text NOT NULL,
 		    id MEDIUMINT NOT NULL AUTO_INCREMENT,
 		    primary key (id)
 		)";
@@ -72,11 +81,12 @@
     <input type='submit' class = 'searchbutton'>
 	<br>
     </form>
-	</div>";
+	</div>
+	<p>Already a user? <a href='Login.php'>Login</a>";
 
 	$loginForm = "<div class = 'boxy'>
 	<br>
-	<h1 class = 'message'>Sign In As Student</h1>
+	<h1 class = 'message'>Student Sign In</h1>
     <br>
     <form action='Login.php' method='POST'>
     Email: <input type='text' name='email' class = 'searchbox'><br>
@@ -84,7 +94,9 @@
     <input type='submit' class = 'searchbutton'>
 	<br>
     </form>
-	</div>";
+	</div>
+	<p>Don't have an account? <a href='signup.php'>Sign Up</a>
+	";
 
 	$notLoggedIn = "<div class = 'boxy'>
         <br>

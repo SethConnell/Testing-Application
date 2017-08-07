@@ -102,9 +102,8 @@
 		color: #4CC2EF;
 	}
 
-	.searchbutton {
+	.searchbutton, input[type=submit] {
 		width: 100px;
-		padding-bottom: 5px;
 		display: flex-box;
 		text-align: center;
 		margin-bottom: 20px;
@@ -112,12 +111,12 @@
 		background-color: white;
 		border-style: solid;
 		border-width: 2px 2px 2px 2px;
-		height: 30px;
-		line-height: 30px;
+		height: 45px;
+		line-height: 40px;
 		margin-top: 25px;
 	}
 
-	.searchbutton:hover {
+	.searchbutton:hover, input[type=submit]:hover {
 		border-color: white;
 		color: white;
 		background-color: #4CC2EF;
@@ -134,7 +133,7 @@
 	}
 	a {
 		text-decoration: underline;
-	}
+		}
 	</style>
 <title>Student Login</title>
 </head>
