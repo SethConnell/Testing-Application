@@ -2,10 +2,6 @@
 <?php
 	session_start();
 	require('functions.php');
-	if (isset($_SESSION['id'])) {
-		echo "<a href='signout.php'>Logout</a>";
-		session_write_close();
-	}
 ?>
 <html>
 <head>
@@ -73,8 +69,39 @@
 		font-size: 15px;
 		font-family: sans-serif;
 	}
+	/* unvisited link */
 	a {
 		text-decoration: none;
+		transition-duration: 1s;
+		
+	}
+	.item:hover {
+		padding-left: 20px;
+		transition-duration: 1s;
+	}
+	a:link {
+    color: white;
+	}
+	/* visited link */
+	a:visited {
+		color: white;
+	}
+	.sidebar {
+		display: flex-box;
+		float: left;
+		border-style: solid;
+		border: 2px;
+		border-color: white;
+		color: white;
+	}
+	.hometitle {
+		width: 100%;
+		text-align: center;
+	}
+	.subtitle {
+		width: 50%;
+		margin: auto;
+		text-align: center;
 	}
 </style>
 <title>Home Page</title>
@@ -86,6 +113,16 @@
 		if (!isset($_SESSION['id'])) {
 			echo $notLoggedIn;
 		}
+		if (isset($_SESSION['id'])) {
+			echo "<header><h1 class = 'message'>Home</h1></header>";
+			echo "<div class = 'sidebar'>
+			<a href='signout.php' class = 'item'> - Logout</a><br>
+			<a href='EXAMPLE.php' class = 'item'> - View Tests</a><br>
+			<a href='EXAMPLE.php' class = 'item'> - Be Cool</a><br>
+			</div>";
+			echo "<div class = 'homework'><h2 class = 'subtitle'>Homework</h2></div>";
+		}
+		
 		?>
     </div>
 </body>

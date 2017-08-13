@@ -40,6 +40,7 @@
 			send_query($conn, $sql);
 			$user_id = mysqli_query($conn, "SELECT id FROM usertable WHERE email='$email'");
 			$_SESSION['id'] = $user_id;
+			$_SESSION['email'] = $email;
 			mysqli_close($conn);
 			echo "Everything worked successfully.";
 		}

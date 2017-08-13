@@ -36,6 +36,7 @@
             if (password_verify($typed_password, stored_password($typed_email))) {
         		$user_id = mysqli_query($conn, "SELECT id FROM usertable WHERE email='$typed_email'");
         		$_SESSION['id'] = $user_id;
+				$_SESSION['email'] = $typed_email;
 				header( 'Location: home.php');
             }
 			else {
@@ -146,6 +147,8 @@
 	<?php
 	echo $loginForm;
 	?>
+	<form action="checkbox-form.php" method="post">
+</form>
 </body>
 
 </html>
