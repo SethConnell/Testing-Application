@@ -39,6 +39,7 @@
         		$_SESSION['id'] = $user_id;
         		$passwordvar = stored_password($typed_email);
 				$_SESSION['password'] = $passwordvar;
+				header("Location: home.php");
             }
 			else {
 				 echo "Password incorrect.";

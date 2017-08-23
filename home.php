@@ -7,6 +7,9 @@
 <head>
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 <style>
+	* {
+		font-family: 'Josefin Sans', sans-serif;
+	}
 	html {
 		height: 100%
 	}
@@ -27,11 +30,16 @@
 	.boxy {
 		width: 35%;
 		margin: auto;
-		margin-top: 20%;
+		margin-top: 20px;
 		background-color: #4CC2EF;
 		-webkit-box-shadow: 0px 0px 25px 6px rgba(26,128,173,0.66);
 		-moz-box-shadow: 0px 0px 25px 6px rgba(26,128,173,0.66);
 		box-shadow: 0px 0px 25px 6px rgba(26,128,173,0.66);
+		transition-duration: 1s;
+	}
+	.boxy:hover {
+		border-radius: 50px;
+		transition-duration: 1s;
 	}
 	.results {
 		width: 100%;
@@ -39,7 +47,7 @@
 		background-color: white;
 		color: #4CC2EF;
 	}
-
+	
 	.searchbutton {
 		width: 30%;
 		display: flex-box;
@@ -64,7 +72,6 @@
 		font-size: 30px;
 		font-family: sans-serif;
 	}
-
 	.value {
 		font-size: 15px;
 		font-family: sans-serif;
@@ -72,11 +79,14 @@
 	/* unvisited link */
 	a {
 		text-decoration: none;
-		transition-duration: 1s;
-		
+		transition-duration: 1s;		
+	}
+	.item {
+		width: 100%;
+		text-align: center;
 	}
 	.item:hover {
-		padding-left: 20px;
+		color: blue;
 		transition-duration: 1s;
 	}
 	a:link {
@@ -114,16 +124,18 @@
 			echo $notLoggedIn;
 		}
 		if (isset($_SESSION['id'])) {
+			echo "<br>";
+			echo "<br>";
 			echo "<header><h1 class = 'message'>Home</h1></header>";
-			echo "<div class = 'sidebar'>
-			<a href='signout.php' class = 'item'> - Logout</a><br>
-			<a href='EXAMPLE.php' class = 'item'> - View Tests</a><br>
-			<a href='EXAMPLE.php' class = 'item'> - Be Cool</a><br>
-			</div>";
-			echo "<div class = 'homework'><h2 class = 'subtitle'>Homework</h2></div>";
+			echo "<div class = 'boxy' style = 'height: 100px'><a href = 'tests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Take Test</h3></a></div><div class = 'boxy' style = 'height: 100px'><a href = 'tests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Create Tests</h3></a></div>";
+			echo "<br>";
+			echo "<br>";
+			echo "<a href='signout.php' class = 'item'><h4>Logout</h4></a";
 		}
 		
 		?>
+		
+		
     </div>
 </body>
 
