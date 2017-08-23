@@ -31,21 +31,33 @@
 			    echo "ERROR: Was not able to execute code: " . mysqli_error($connection) . "<br>";
 			}
 		};
-	function isTeacher($loginid) {
-	    
-	}
 
 	// Encrypting password and email for database.
 	function hashpassword($oldpassword) {
 		$oldpassword = password_hash($oldpassword, PASSWORD_BCRYPT);
 		return $oldpassword;
 	};
+	
   	function ifLoggedIn() {
-		 if (isset($_SESSION['id'])) {
-			echo "<a href='signout.php'>Logout</a>";
-			session_write_close();
-		}
+  	    global $conn;
+  	    if (isset($_SESSION['id']) && isset($_SESSION['password'])) {
+	        $quickvar = $_SESSION['id'];
+	        $verify_password = mysqli_query($conn, "SELECT password FROM usertable WHERE id='$quickvar'");
+	        $verify_password = mysqli_fetch_row($verify_password);
+            if ($_SESSION['password'] == $verify_password[0]) {
+                return true;
+	        } else {
+	            echo "Apparently, this is false.";
+	            echo "<br>";
+	            echo "Session ID: " . $quickvar . "<br>";
+	            echo "Session Password: " . $_SESSION['password'] . "<br>";
+	            echo "Saved Password: " . $verify_password[0];
+	            return false;
+	            
+	        }
+	    }
 	};
+	
 	// This function creates a table if it does not already exist.
 	// Great for testing.
 	function createUserTableIfDoesNotExist(){
@@ -60,6 +72,7 @@
 		)";
 		send_query($conn, $sql);
 	};
+	
 	
 	function createTestTableIfDoesNotExist() {
 	    global $conn;

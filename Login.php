@@ -1,13 +1,14 @@
 <?php
 	session_start();
-	if (isset($_SESSION['id']) && isset($_SESSION['password'])) {
-	    echo "<h5>You are currently logged in.</h5>";
-	    header('Location: home.php');
-		}
+	require('functions.php');
+	if (isset($_POST["password"]) && isset($_POST["email"])) {
+	    if (ifLoggedIn() == true) {
+	        header("Location: home.php");
+	    }
+	};
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-	require('functions.php');
     // Force HTTPS for security
     if($_SERVER["HTTPS"] != "on") {
         $pageURL = "Location: https://";
@@ -23,8 +24,6 @@
     if (isset($_POST["password"]) && isset($_POST["email"])) {
 		$typed_password = $_POST["password"];
 		$typed_email = $_POST["email"];
-		
-		// Encrypting password for database.
     
 		
 		// Check connection
