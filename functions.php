@@ -19,11 +19,9 @@
 	function stored_password($email) {
 		global $conn;
 	    $stored_pass = mysqli_query($conn, "SELECT password FROM usertable WHERE email = '$email'");
-		$val = "lol";
-		while ($obj = $stored_pass->fetch_object()) {
-			$val = $obj->password;
-			return $val;
-		}
+	    $row = mysqli_fetch_row($stored_pass);
+        $row = $row[0];
+        return $row; 
 	};
 	
 	// Sends sql to to server.
@@ -33,6 +31,9 @@
 			    echo "ERROR: Was not able to execute code: " . mysqli_error($connection) . "<br>";
 			}
 		};
+	function isTeacher($loginid) {
+	    
+	}
 
 	// Encrypting password and email for database.
 	function hashpassword($oldpassword) {

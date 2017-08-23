@@ -1,8 +1,8 @@
 <?php
 	session_start();
-	if (isset($_SESSION['id'])) {
-		header('Location: home.php');
-		session_write_close();
+	if (isset($_SESSION['id']) && isset($_SESSION['password'])) {
+	    echo "<h5>You are currently logged in.</h5>";
+	    header('Location: home.php');
 		}
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -35,9 +35,11 @@
 		if (stored_password($typed_email)) {
             if (password_verify($typed_password, stored_password($typed_email))) {
         		$user_id = mysqli_query($conn, "SELECT id FROM usertable WHERE email='$typed_email'");
+        		$user_id = mysqli_fetch_row($user_id);
+        		$user_id = $user_id[0];
         		$_SESSION['id'] = $user_id;
-				$_SESSION['email'] = $typed_email;
-				header( 'Location: home.php');
+        		$passwordvar = stored_password($typed_email);
+				$_SESSION['password'] = $passwordvar;
             }
 			else {
 				 echo "Password incorrect.";
