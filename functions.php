@@ -74,12 +74,12 @@
 	};
 	
 	
-	function createTestTableIfDoesNotExist() {
+	function createTestTableIfDoesNotExist($tablename) {
 	    global $conn;
 	    $query = "SELECT ID FROM USERS";
         $result = mysqli_query($conn, $query);
         if(empty($result)) {
-		$sql = "CREATE TABLE `testtable` ( 
+		$sql = "CREATE TABLE " . "`$tablename` ( 
 		    `question1_question` text NOT NULL, 
     		`question1_a` text NOT NULL,
     		`question1_b` text NOT NULL,
@@ -265,6 +265,7 @@
 	</div>";
 
 	$CreateTestForm = <<<"BOOM"
+	Question: <input type='text' name='name' class = 'searchbox'><br>
 	<h1>1.</h1>
 <div class = "problem">
 			Question: <input type='text' name='question1_question' class = 'searchbox'><br>

@@ -127,7 +127,7 @@
 			echo "<br>";
 			echo "<br>";
 			echo "<header><h1 class = 'message'>Home</h1></header>";
-			echo "<div class = 'boxy' style = 'height: 100px'><a href = 'tests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Take Test</h3></a></div><div class = 'boxy' style = 'height: 100px'><a href = 'tests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Create Tests</h3></a></div>";
+			echo "<div class = 'boxy' style = 'height: 100px'><a href = 'tests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>View Tests</h3></a></div><div class = 'boxy' style = 'height: 100px'><a href = 'CreateTest.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Create Tests</h3></a></div>";
 			echo "<br>";
 			echo "<br>";
 			echo "<a href='signout.php' class = 'item'><h4>Logout</h4></a";
