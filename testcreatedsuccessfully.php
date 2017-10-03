@@ -116,6 +116,8 @@
 <body>
 	<div class = "container">
 		<?php
+		session_start();
+		require("functions.php");
 		if (!isset($_SESSION['id'])) {
 			echo $notLoggedIn;
 		}
@@ -131,7 +133,6 @@
 		}
 		
 		?>
-		
 		
     </div>
 </body>

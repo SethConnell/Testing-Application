@@ -222,7 +222,7 @@
     	    `id` MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY
     	)";
 		send_query($conn, $sql);
-		$_POST['worked'] = 'true';
+		$_SESSION['worked'] = "true";
 		
 		} 
 		else {

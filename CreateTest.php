@@ -1,8 +1,13 @@
 <?php
-	if (isset($_POST['worked']) && $_POST['worked'] == 'true') {
-		header('testcreatedsuccessfully.php');
-		exit();
+	session_start();
+	if(isset($_SESSION['worked']) && $_SESSION['worked'] == "true"){
+		// MySQL stuff goes here
+		unset($_SESSION['worked']);
+		echo "<script>window.location.href='testcreatedsuccessfully.php'</script>";
+
+		exit;
 	}
+
 ?>
 <!DOCTYPE html>
 <html>
