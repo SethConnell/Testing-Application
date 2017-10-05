@@ -28,6 +28,7 @@
 		border-width: 1px 1px 1px 1px;
 		text-align: center;
 		outline: none;
+		color: #4CC2EF;
 		}
 	html {
 		height: 100%
