@@ -1,14 +1,11 @@
-<?php
-	session_start();
-	if(isset($_SESSION['worked']) && $_SESSION['worked'] == "true"){
-		// MySQL stuff goes here
-		unset($_SESSION['worked']);
-		echo "<script>window.location.href='testcreatedsuccessfully.php'</script>";
+		<?php
+			session_start();
+			if($_SESSION['worked'] == "true"){
+				header("refresh:1;url=testcreatedsuccessfully.php");
+				exit;
+			}
 
-		exit;
-	}
-
-?>
+		?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,11 +77,41 @@
 		line-height: 40px;
 		margin-top: 25px;
 	}
+	
+	.name {
+		transition-duration: 1.5s;
+		width: 200px;
+		display: flex-box;
+		text-align: center;
+		margin-bottom: 20px;
+		color: #4CC2EF;
+		background-color: white;
+		border-style: solid;
+		border-width: 2px 2px 2px 2px;
+		height: 40px;
+		line-height: 40px;
+		margin-top: 25px;
+		font-size: 20px;
+	}
+		.name:focus {
+			transition-duration: 1.5s;
+			border-radius: 35px;
+			outline:none;
+		}
+	
+	.searchbutton, input[type=submit] {
+		border-color: white;
+		background-color: white;
+		color: #4CC2EF;
+		transition-duration: 1.5s;
+		font-size: 20px;
+	}
+
+		
 
 	.searchbutton:hover, input[type=submit]:hover {
-		border-color: white;
-		color: white;
-		background-color: #4CC2EF;
+		border-radius: 15px;
+		transition-duration: 1.5s;
 	}
 
 	.catagory {
@@ -405,6 +432,7 @@
 					$_POST['question20_type'] . "'," . "'" . 
 					$_POST['question20_answer'] . "')";
 					send_query($conn, $sql);
+					echo "<meta http-equiv='refresh' content='0'>";
 			}
 		?>
     <input type='submit' class = 'searchbutton'>

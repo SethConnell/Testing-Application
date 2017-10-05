@@ -117,6 +117,7 @@
 	<div class = "container">
 		<?php
 		session_start();
+		$_SESSION['worked'] = "false";
 		require("functions.php");
 		if (!isset($_SESSION['id'])) {
 			echo $notLoggedIn;
