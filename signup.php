@@ -1,5 +1,6 @@
 <?php
     session_start();
+	require("noerrors.php");
     if (isset($_SESSION['id'])) {
 		header('Location: home.php');
 		exit();

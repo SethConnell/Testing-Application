@@ -2,11 +2,24 @@
 <?php
 	session_start();
 	require('functions.php');
+	require("noerrors.php");
+	
+	
+	
+
+	
 ?>
+
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 <style>
+	#name {
+		display: inline-flex;
+		color: white;
+		font-size: 20px;
+		float: left;
+	}
 	* {
 		font-family: 'Josefin Sans', sans-serif;
 	}
@@ -126,11 +139,12 @@
 		if (isset($_SESSION['id'])) {
 			echo "<br>";
 			echo "<br>";
-			echo "<header><h1 class = 'message'>Home</h1></header>";
+			echo "<header><h1 class = 'message'>Welcome home, " . getnamewithid() . ".</h1></header>";
 			echo "<div class = 'boxy' style = 'height: 100px'><a href = 'viewtests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>View Tests</h3></a></div><div class = 'boxy' style = 'height: 100px'><a href = 'CreateTest.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Create Tests</h3></a></div>";
 			echo "<br>";
 			echo "<br>";
-			echo "<a href='signout.php' class = 'item'><h4>Logout</h4></a";
+			echo "<a href='signout.php' class = 'item'><h4>Logout</h4></a>";
+			
 		}
 		
 		?>

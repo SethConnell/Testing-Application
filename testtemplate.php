@@ -149,13 +149,11 @@
     </style>
 	<div class = "error"></div>
 	<div class = 'boxy'>
-	<br>
-    <h1 class = 'message'>Create Test</h1>
     <br>
     <form action='CreateTest.php' method='POST'>
 		<?php 
 			require("functions.php");
-			echo $CreateTestForm; 
+			echo $CreateTestTemplate; 
 			if (isset($_POST['name'],
 					  $_POST['question1_question'], 
 					  $_POST['question1_a'], 

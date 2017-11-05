@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require('functions.php');
+	require("noerrors.php");
 	if (isset($_POST["password"]) && isset($_POST["email"])) {
 	    if (ifLoggedIn() == true) {
 	        header("Location: home.php");

@@ -3,5 +3,6 @@
     session_destroy();
     session_unset();
     header('Location: login.php');
+	require("noerrors.php");
     exit();
 ?>
