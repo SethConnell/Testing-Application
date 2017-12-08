@@ -1,5 +1,5 @@
 <?php
-	require("noerrors.php");
+	
 	$signup_name = "name";
 	$signup_password1 = "password";
 	$signup_password2 = "verifypassword";
@@ -13,12 +13,15 @@
 	$db_name = "DataTest";
 	$TestList = "TestList";
 	$TestInfo = "TestInfo";
+	$TestResults = "TestResults"; 
+	$results = "results";
 	$errormessage = "Email or password is incorrect.";
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $db_name);
 	$conn2 = new mysqli($servername, $username, $password);
 	$conn3 = new mysqli($servername, $username, $password, $TestList);
  	$conn4 = new mysqli($servername, $username, $password, $TestInfo);
+	$conn5 = new mysqli($servername, $username, $password, $results);
 	// This function returns the saved password if user exists.
 	function stored_password($email) {
 		global $conn;
@@ -79,7 +82,7 @@
 	    $query = "SELECT ID FROM $tablename";
         $result = mysqli_query($conn3, $query);
         if(empty($result)) {
-		$sql = "CREATE TABLE " . "`$tablename`" . "( 
+		$sql = "CREATE TABLE " . "`$tablename`" . "(
 		    `question1_question` text NOT NULL, 
     		`question1_a` text NOT NULL,
     		`question1_b` text NOT NULL,
@@ -599,8 +602,9 @@
 BOOM;
 	
 		function getnamewithid() {
+			session_start();
 			global $conn;
-			if (isset($_SESSION['id'])) {
+			if ($_SESSION['id']) {
 				$varvar = $_SESSION['id'];
 				global $conn;
 				$sql = "SELECT name FROM usertable WHERE id = $varvar";
@@ -618,7 +622,78 @@ function getrows() {
 		$result = mysqli_query($conn4, "select * from TestDataLists");  
 		$number_of_rows = mysqli_num_rows($result);
 		return $number_of_rows;
-	}	
+	}
+
+function isTeacher($id) {
+	global $conn;
+	$sql = "SELECT is_teacher FROM usertable where id = $id";
+	if($result=mysqli_query($conn,$sql)) {
+		$row=mysqli_fetch_row($result);
+		if ($row[0] == "y") {
+			return True;
+		}
+		else {
+			return False;
+		}
+	}
+}
+
+function getName($id) {
+	global $conn;
+	$sql = "SELECT name FROM usertable where id = $id";
+	if($result=mysqli_query($conn,$sql)) {
+		$row=mysqli_fetch_row($result);
+		if ($row[0]) {
+			return $row[0];
+		}
+		else {
+			return "N/A";
+		}
+	}
+}
+
+function loggedIn($id, $password) {
+	global $conn;
+	$sql = "SELECT password FROM usertable where id = $id";
+	if($result=mysqli_query($conn,$sql)) {
+		$row=mysqli_fetch_row($result);
+		if ($row[0] == $password){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+}
+
+function isTest($id) {
+	global $conn;
+	$sql = "SELECT is_teacher FROM usertable where id = $id";
+	if($result=mysqli_query($conn,$sql)) {
+		$row=mysqli_fetch_row($result);
+		if ($row[0] == "y") {
+			return True;
+		}
+		else {
+			return False;
+		}
+	}
+}
+
+function GetTopId($table) {
+	global $conn5;
+	$sQry = "SELECT id FROM `$table` ORDER BY Id";
+	$query = mysqli_query($conn5, $sQry);
+	$numrows = mysqli_num_rows($query);
+	return $numrows;
+}
+
+function SanitizeString($string) {
+	$new_string = preg_replace('~[^a-zA-Z0-9]+~', '', $string);
+	return $new_string;
+}
+
 	
 function displayalltests($name) {
 	global $conn4;
@@ -637,10 +712,26 @@ function displayalltests($name) {
 		$result2 = mysqli_query($conn4, "SELECT linky FROM `TestDataLists` WHERE `users` LIKE '%{$name}%' LIMIT $b,$i");
 		$testname = $result->fetch_object()->testname;
 		$link = $result2->fetch_object()->linky;
-		echo "<a href = '$link'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>$testname</h3></a>";
+		if ($testname != "") {
+			echo "<div class = 'boxy' style = 'height: 100px'>";
+			echo "<a href = 'takeatest.php?testname=$testname'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>$testname</h3></a>";
+			echo "</div>";
+		}
 	} // 0.663 ms
 }
 
+function addnametotest($test, $name){
+	global $conn4;
+	$name = "-".$name."-";
+	$sql = "UPDATE `TestDataLists` SET users=CONCAT(users,'$name') WHERE testname = '$test'";
+	mysqli_query($conn4, $sql);
+}
+
+function addtesttotests($testname) {
+	global $conn4;
+	$sql = "INSERT INTO `TestDataLists` (`testname`, `linky`) VALUES ('$testname', 'takeatest.php?testname=$testname')";
+	mysqli_query($conn4, $sql);
+}
 
 $CreateTestTemplate = <<<"BOOM"
 	<h1 class = 'message'>Test Name</h1><br>

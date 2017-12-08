@@ -140,11 +140,9 @@
 			echo "<br>";
 			echo "<br>";
 			echo "<header><h1 class = 'message'>Your Tests</h1></header>";
-			echo "<div class = 'boxy' style = 'height: 100px'>";
 			
 			displayalltests("SethConnell");
 			
-			echo "</div>";
 			echo "<br>";
 			echo "<br>";
 			echo "<a href='signout.php' class = 'item'><h4>Logout</h4></a>";

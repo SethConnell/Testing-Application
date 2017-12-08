@@ -31,6 +31,7 @@
 		width: 100%;
 		height: 100%;
 		background-color: #25AADF;
+		/* Steel Blue */
 	}
 
 	.message {
@@ -136,11 +137,17 @@
 		if (!isset($_SESSION['id'])) {
 			echo $notLoggedIn;
 		}
-		if (isset($_SESSION['id'])) {
+		if (loggedIn($_SESSION['id'], $_SESSION['password']) == true) {
 			echo "<br>";
 			echo "<br>";
 			echo "<header><h1 class = 'message'>Welcome home, " . getnamewithid() . ".</h1></header>";
-			echo "<div class = 'boxy' style = 'height: 100px'><a href = 'viewtests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>View Tests</h3></a></div><div class = 'boxy' style = 'height: 100px'><a href = 'CreateTest.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Create Tests</h3></a></div>";
+			echo "<div class = 'boxy' style = 'height: 100px'><a href = 'viewtests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>View Your Tests</h3></a></div>";
+			echo "<div class = 'boxy' style = 'height: 100px'><a href = 'previoustests.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Your Tests Results</h3></a></div>";
+			if (isTeacher($_SESSION['id']) == True && isTeacher($_SESSION['id'])) {
+				echo "<h1 class = 'message'>Teacher Section</h1>";
+				echo "<div class = 'boxy' style = 'height: 100px'><a href = 'CreateTest.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>Create Tests</h3></a></div>";
+				echo "<div class = 'boxy' style = 'height: 100px'><a href = 'viewresults.php'><h3 style = 'line-height: 100px; font-size: 40px; text-align: center;'>All Test Results</h3></a>";
+			}
 			echo "<br>";
 			echo "<br>";
 			echo "<a href='signout.php' class = 'item'><h4>Logout</h4></a>";

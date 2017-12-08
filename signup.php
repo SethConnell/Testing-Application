@@ -48,7 +48,7 @@
 			echo "Everything worked successfully.";
 		}
 		else {
-			echo "What kind of bullshit is this?!! You already have an account.";
+			echo "You already have an account.";
 		}
 	}
 ?>

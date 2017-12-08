@@ -302,139 +302,139 @@
 				createTestTableIfDoesNotExist($testname);
 				
 				$sql = "INSERT INTO " . $testname . "(`question1_question`, `question1_a`, `question1_b`, `question1_c`, `question1_d`, `question1_type`, `question1_answer`, `question2_question`, `question2_a`, `question2_b`, `question2_c`, `question2_d`, `question2_type`, `question2_answer`, `question3_question`, `question3_a`, `question3_b`, `question3_c`, `question3_d`, `question3_type`, `question3_answer`, `question4_question`, `question4_a`, `question4_b`, `question4_c`, `question4_d`, `question4_type`, `question4_answer`, `question5_question`, `question5_a`, `question5_b`, `question5_c`, `question5_d`, `question5_type`, `question5_answer`, `question6_question`, `question6_a`, `question6_b`, `question6_c`, `question6_d`, `question6_type`, `question6_answer`, `question7_question`, `question7_a`, `question7_b`, `question7_c`, `question7_d`, `question7_type`, `question7_answer`, `question8_question`, `question8_a`, `question8_b`, `question8_c`, `question8_d`, `question8_type`, `question8_answer`, `question9_question`, `question9_a`, `question9_b`, `question9_c`, `question9_d`, `question9_type`, `question9_answer`, `question10_question`, `question10_a`, `question10_b`, `question10_c`, `question10_d`, `question10_type`, `question10_answer`, `question11_question`, `question11_a`, `question11_b`, `question11_c`, `question11_d`, `question11_type`, `question11_answer`, `question12_question`, `question12_a`, `question12_b`, `question12_c`, `question12_d`, `question12_type`, `question12_answer`, `question13_question`, `question13_a`, `question13_b`, `question13_c`, `question13_d`, `question13_type`, `question13_answer`, `question14_question`, `question14_a`, `question14_b`, `question14_c`, `question14_d`, `question14_type`, `question14_answer`, `question15_question`, `question15_a`, `question15_b`, `question15_c`, `question15_d`, `question15_type`, `question15_answer`, `question16_question`, `question16_a`, `question16_b`, `question16_c`, `question16_d`, `question16_type`, `question16_answer`, `question17_question`, `question17_a`, `question17_b`, `question17_c`, `question17_d`, `question17_type`, `question17_answer`, `question18_question`, `question18_a`, `question18_b`, `question18_c`, `question18_d`, `question18_type`, `question18_answer`, `question19_question`, `question19_a`, `question19_b`, `question19_c`, `question19_d`, `question19_type`, `question19_answer`, `question20_question`, `question20_a`, `question20_b`, `question20_c`, `question20_d`, `question20_type`, `question20_answer`)
-				VALUES ('" . $_POST['question1_question'] . "'," . "'" . $_POST['question1_a'] . "'," . "'" . $_POST['question1_b'] . "'," . "'" . $_POST['question1_c'] . "'," . "'" . $_POST['question1_d'] . "'," . "'" . $_POST['question1_type'] . "'," . "'" . $_POST['question1_answer'] . "'," . "'" . $_POST['question2_question'] . "'," . 
-					"'" . $_POST['question2_a'] . "'," .
-					"'" . $_POST['question2_b'] . "'," . 
-					"'" . $_POST['question2_c'] . "'," . 
-					"'" . $_POST['question2_d'] . "'," . 
-					"'" . $_POST['question2_type'] . "'," .
-					"'" . $_POST['question2_answer'] . "'," .
-					"'" . $_POST['question3_question'] . "'," .
-					"'" . $_POST['question3_a'] . "'," . 
-					"'" . $_POST['question3_b'] . "'," . 
-					"'" . $_POST['question3_c'] . "'," . 
-					"'" . $_POST['question3_d'] . "'," . 
-					"'" . $_POST['question3_type'] . "'," . 
-					"'" . $_POST['question3_answer'] . "'," . 
-					"'" . $_POST['question4_question'] . "'," . 
-					"'" . $_POST['question4_a'] . "'," . 
-					"'" . $_POST['question4_b'] . "'," . 
-					"'" . $_POST['question4_c'] . "'," . 
-					"'" . $_POST['question4_d'] . "'," . 
-					"'" . $_POST['question4_type'] . "'," .
-					"'" . $_POST['question4_answer'] . "'," . 
-					"'" . $_POST['question5_question'] . "'," .
-					"'" . $_POST['question5_a'] . "'," . 
-					"'" . $_POST['question5_b'] . "'," . 
-					"'" . $_POST['question5_c'] . "'," . 
-					"'" . $_POST['question5_d'] . "'," . 
-					"'" . $_POST['question5_type'] . "'," . 
-					"'" . $_POST['question5_answer'] . "'," .
-					"'" . $_POST['question6_question'] . "'," .
-					"'" . $_POST['question6_a'] . "'," . 
-					"'" . $_POST['question6_b'] . "'," . 
-					"'" . $_POST['question6_c'] . "'," .
-					"'" . $_POST['question6_d'] . "'," . 
-					"'" . $_POST['question6_type'] . "'," .
-					"'" . $_POST['question6_answer'] . "'," . 
-					"'" . $_POST['question7_question'] . "'," . 
-					"'" . $_POST['question7_a'] . "'," . 
-					"'" . $_POST['question7_b'] . "'," . 
-					"'" . $_POST['question7_c'] . "'," . 
-					"'" . $_POST['question7_d'] . "'," . 
-					"'" . $_POST['question7_type'] . "'," .
-					"'" . $_POST['question7_answer'] . "'," . 
-					"'" . $_POST['question8_question'] . "'," . 
-					"'" . $_POST['question8_a'] . "'," . 
-					"'" . $_POST['question8_b'] . "'," . 
-					"'" . $_POST['question8_c'] . "'," . 
-					"'" . $_POST['question8_d'] . "'," . 
-					"'" . $_POST['question8_type'] . "'," . 
-					"'" . $_POST['question8_answer'] . "'," . 
-					"'" . $_POST['question9_question'] . "'," . 
-					"'" . $_POST['question9_a'] . "'," . 
-					"'" . $_POST['question9_b'] . "'," . 
-					"'" . $_POST['question9_c'] . "'," . 
-					"'" . $_POST['question9_d'] . "'," . 
-					"'" . $_POST['question9_type']. "'," . 
-					"'" . $_POST['question9_answer'] . "'," . 
-					"'" . $_POST['question10_question'] . "'," .
-					"'" . $_POST['question10_a'] . "'," . 
-					"'" . $_POST['question10_b'] . "'," . 
-					"'" . $_POST['question10_c'] . "'," .
-					"'" . $_POST['question10_d'] . "'," . 
-					"'" . $_POST['question10_type'] . "'," . 
-					"'" . $_POST['question10_answer'] . "'," .
-					"'" . $_POST['question11_question'] . "'," .
-					"'" . $_POST['question11_a'] . "'," . 
-					"'" . $_POST['question11_b'] . "'," .
-					"'" . $_POST['question11_c'] . "'," . 
-					"'" . $_POST['question11_d'] . "'," .
-					"'" . $_POST['question11_type'] . "'," . 
-					"'" . $_POST['question11_answer'] . "'," . "'" . 
-					$_POST['question12_question'] . "'," . "'" . 
-					$_POST['question12_a'] . "'," . "'" . 
-					$_POST['question12_b']. "'," . "'" . 
-					$_POST['question12_c']. "'," . "'" . 
-					$_POST['question12_d'] . "'," . "'" .
-					$_POST['question12_type'] . "'," . "'" . 
-					$_POST['question12_answer'] . "'," . "'" .
-					$_POST['question13_question'] . "'," . "'" . 
-					$_POST['question13_a'] . "'," . "'" . 
-					$_POST['question13_b'] . "'," . "'" . 
-					$_POST['question13_c'] . "'," . "'" . 
-					$_POST['question13_d'] . "'," . "'" . 
-					$_POST['question13_type'] . "'," . "'" . 
-					$_POST['question13_answer'] . "'," . "'" . 
-					$_POST['question14_question'] . "'," . "'" . 
-					$_POST['question14_a'] . "'," . "'" . 
-					$_POST['question14_b'] . "'," . "'" . 
-					$_POST['question14_c']  ."'," . "'" . 
-					$_POST['question14_d'] . "'," . "'". 
-					$_POST['question14_type'] . "'," . "'" . 
-					$_POST['question14_answer'] . "'," . "'" . 
-					$_POST['question15_question'] . "'," . "'" .
-					$_POST['question15_a']. "'," . "'" . 
-					$_POST['question15_b'] . "'," . "'" . 
-					$_POST['question15_c'] . "'," . "'" . 
-					$_POST['question15_d'] . "'," . "'" . 
-					$_POST['question15_type'] . "'," . "'" . 
-					$_POST['question15_answer'] . "'," . "'" . 
-					$_POST['question16_question'] . "'," . "'" . 
-					$_POST['question16_a'] . "'," . "'" . 
-					$_POST['question16_b'] . "'," . "'" . 
-					$_POST['question16_c'] . "'," . "'" . 
-					$_POST['question16_d'] . "'," . "'" . 
-					$_POST['question16_type'] . " '," . "'" . 
-					$_POST['question16_answer'] . "'," . "'" . 
-					$_POST['question17_question'] . "'," . "'" . 
-					$_POST['question17_a'] . "'," . "'" . 
-					$_POST['question17_b'] . "'," . "'" . 
-					$_POST['question17_c'] . "'," . "'" . 
-					$_POST['question17_d'] . "'," . "'" . 
-					$_POST['question17_type'] . "'," . "'" . 
-					$_POST['question17_answer'] . "'," . "'" .
-					$_POST['question18_question'] . "'," . "'" . 
-					$_POST['question18_a'] . "'," . "'" . 
-					$_POST['question18_b'] . "'," . "'" . 
-					$_POST['question18_c'] . "'," . "'" . 
-					$_POST['question18_d'] . "'," . "'" . 
-					$_POST['question18_type'] . "'," . "'" . 
-					$_POST['question18_answer'] . "'," . "'" . 
-					$_POST['question19_question'] . "'," . "'" . 
-					$_POST['question19_a'] . "'," . "'" . 
-					$_POST['question19_b'] . "'," . "'" .
-					$_POST['question19_c'] . "'," . "'" . 
-					$_POST['question19_d'] . "'," . "'" . 
-					$_POST['question19_type'] . "'," . "'" . 
-					$_POST['question19_answer'] . "'," . "'" . 
-					$_POST['question20_question'] . "'," . "'" . 
-					$_POST['question20_a'] . "'," . "'" . 
-					$_POST['question20_b'] . "'," . "'" . 
-					$_POST['question20_c'] . "'," . "'" . 
-					$_POST['question20_d'] . "'," . "'" . 
-					$_POST['question20_type'] . "'," . "'" . 
-					$_POST['question20_answer'] . "')";
+				VALUES ('" . SanitizeString($_POST['question1_question']) . "'," . "'" . SanitizeString($_POST['question1_a']) . "'," . "'" . SanitizeString($_POST['question1_b']) . "'," . "'" . SanitizeString($_POST['question1_c']) . "'," . "'" . SanitizeString($_POST['question1_d']) . "'," . "'" . SanitizeString($_POST['question1_type']) . "'," . "'" . SanitizeString($_POST['question1_answer']) . "'," . "'" . SanitizeString($_POST['question2_question']) . "'," . 
+					"'" . SanitizeString($_POST['question2_a']) . "'," .
+					"'" . SanitizeString($_POST['question2_b']) . "'," . 
+					"'" . SanitizeString($_POST['question2_c']) . "'," . 
+					"'" . SanitizeString($_POST['question2_d']) . "'," . 
+					"'" . SanitizeString($_POST['question2_type']) . "'," .
+					"'" . SanitizeString($_POST['question2_answer']) . "'," .
+					"'" . SanitizeString($_POST['question3_question']) . "'," .
+					"'" . SanitizeString($_POST['question3_a']) . "'," . 
+					"'" . SanitizeString($_POST['question3_b']) . "'," . 
+					"'" . SanitizeString($_POST['question3_c']) . "'," . 
+					"'" . SanitizeString($_POST['question3_d']) . "'," . 
+					"'" . SanitizeString($_POST['question3_type']) . "'," . 
+					"'" . SanitizeString($_POST['question3_answer']) . "'," . 
+					"'" . SanitizeString($_POST['question4_question']) . "'," . 
+					"'" . SanitizeString($_POST['question4_a']) . "'," . 
+					"'" . SanitizeString($_POST['question4_b']) . "'," . 
+					"'" . SanitizeString($_POST['question4_c']) . "'," . 
+					"'" . SanitizeString($_POST['question4_d']) . "'," . 
+					"'" . SanitizeString($_POST['question4_type']) . "'," .
+					"'" . SanitizeString($_POST['question4_answer']) . "'," . 
+					"'" . SanitizeString($_POST['question5_question']) . "'," .
+					"'" . SanitizeString($_POST['question5_a']) . "'," . 
+					"'" . SanitizeString($_POST['question5_b']) . "'," . 
+					"'" . SanitizeString($_POST['question5_c']) . "'," . 
+					"'" . SanitizeString($_POST['question5_d']) . "'," . 
+					"'" . SanitizeString($_POST['question5_type']) . "'," . 
+					"'" . SanitizeString($_POST['question5_answer']) . "'," .
+					"'" . SanitizeString($_POST['question6_question']) . "'," .
+					"'" . SanitizeString($_POST['question6_a']) . "'," . 
+					"'" . SanitizeString($_POST['question6_b']) . "'," . 
+					"'" . SanitizeString($_POST['question6_c']) . "'," .
+					"'" . SanitizeString($_POST['question6_d']) . "'," . 
+					"'" . SanitizeString($_POST['question6_type']) . "'," .
+					"'" . SanitizeString($_POST['question6_answer']) . "'," . 
+					"'" . SanitizeString($_POST['question7_question']) . "'," . 
+					"'" . SanitizeString($_POST['question7_a']) . "'," . 
+					"'" . SanitizeString($_POST['question7_b']) . "'," . 
+					"'" . SanitizeString($_POST['question7_c']) . "'," . 
+					"'" . SanitizeString($_POST['question7_d']) . "'," . 
+					"'" . SanitizeString($_POST['question7_type']) . "'," .
+					"'" . SanitizeString($_POST['question7_answer']) . "'," . 
+					"'" . SanitizeString($_POST['question8_question']) . "'," . 
+					"'" . SanitizeString($_POST['question8_a']) . "'," . 
+					"'" . SanitizeString($_POST['question8_b']) . "'," . 
+					"'" . SanitizeString($_POST['question8_c']) . "'," . 
+					"'" . SanitizeString($_POST['question8_d']) . "'," . 
+					"'" . SanitizeString($_POST['question8_type']) . "'," . 
+					"'" . SanitizeString($_POST['question8_answer']) . "'," . 
+					"'" . SanitizeString($_POST['question9_question']) . "'," . 
+					"'" . SanitizeString($_POST['question9_a']) . "'," . 
+					"'" . SanitizeString($_POST['question9_b']) . "'," . 
+					"'" . SanitizeString($_POST['question9_c']) . "'," . 
+					"'" . SanitizeString($_POST['question9_d']) . "'," . 
+					"'" . SanitizeString($_POST['question9_type']). "'," . 
+					"'" . SanitizeString($_POST['question9_answer']) . "'," . 
+					"'" . SanitizeString($_POST['question10_question']) . "'," .
+					"'" . SanitizeString($_POST['question10_a']) . "'," . 
+					"'" . SanitizeString($_POST['question10_b']) . "'," . 
+					"'" . SanitizeString($_POST['question10_c']) . "'," .
+					"'" . SanitizeString($_POST['question10_d']) . "'," . 
+					"'" . SanitizeString($_POST['question10_type']) . "'," . 
+					"'" . SanitizeString($_POST['question10_answer']) . "'," .
+					"'" . SanitizeString($_POST['question11_question']) . "'," .
+					"'" . SanitizeString($_POST['question11_a']) . "'," . 
+					"'" . SanitizeString($_POST['question11_b']) . "'," .
+					"'" . SanitizeString($_POST['question11_c']) . "'," . 
+					"'" . SanitizeString($_POST['question11_d']) . "'," .
+					"'" . SanitizeString($_POST['question11_type']) . "'," . 
+					"'" . SanitizeString($_POST['question11_answer']) . "'," . "'" . 
+					SanitizeString($_POST['question12_question']) . "'," . "'" . 
+					SanitizeString($_POST['question12_a']) . "'," . "'" . 
+					SanitizeString($_POST['question12_b']). "'," . "'" . 
+					SanitizeString($_POST['question12_c']). "'," . "'" . 
+					SanitizeString($_POST['question12_d']) . "'," . "'" .
+					SanitizeString($_POST['question12_type']) . "'," . "'" . 
+					SanitizeString($_POST['question12_answer']) . "'," . "'" .
+					SanitizeString($_POST['question13_question']) . "'," . "'" . 
+					SanitizeString($_POST['question13_a']) . "'," . "'" . 
+					SanitizeString($_POST['question13_b']) . "'," . "'" . 
+					SanitizeString($_POST['question13_c']) . "'," . "'" . 
+					SanitizeString($_POST['question13_d']) . "'," . "'" . 
+					SanitizeString($_POST['question13_type']) . "'," . "'" . 
+					SanitizeString($_POST['question13_answer']) . "'," . "'" . 
+					SanitizeString($_POST['question14_question']) . "'," . "'" . 
+					SanitizeString($_POST['question14_a']) . "'," . "'" . 
+					SanitizeString($_POST['question14_b']) . "'," . "'" . 
+					SanitizeString($_POST['question14_c'])  ."'," . "'" . 
+					SanitizeString($_POST['question14_d']) . "'," . "'". 
+					SanitizeString($_POST['question14_type']) . "'," . "'" . 
+					SanitizeString($_POST['question14_answer']) . "'," . "'" . 
+					SanitizeString($_POST['question15_question']) . "'," . "'" .
+					SanitizeString($_POST['question15_a']). "'," . "'" . 
+					SanitizeString($_POST['question15_b']) . "'," . "'" . 
+					SanitizeString($_POST['question15_c']) . "'," . "'" . 
+					SanitizeString($_POST['question15_d']) . "'," . "'" . 
+					SanitizeString($_POST['question15_type']) . "'," . "'" . 
+					SanitizeString($_POST['question15_answer']) . "'," . "'" . 
+					SanitizeString($_POST['question16_question']) . "'," . "'" . 
+					SanitizeString($_POST['question16_a']) . "'," . "'" . 
+					SanitizeString($_POST['question16_b']) . "'," . "'" . 
+					SanitizeString($_POST['question16_c']) . "'," . "'" . 
+					SanitizeString($_POST['question16_d']) . "'," . "'" . 
+					SanitizeString($_POST['question16_type']) . " '," . "'" . 
+					SanitizeString($_POST['question16_answer']) . "'," . "'" . 
+					SanitizeString($_POST['question17_question']) . "'," . "'" . 
+					SanitizeString($_POST['question17_a']) . "'," . "'" . 
+					SanitizeString($_POST['question17_b']) . "'," . "'" . 
+					SanitizeString($_POST['question17_c']) . "'," . "'" . 
+					SanitizeString($_POST['question17_d']) . "'," . "'" . 
+					SanitizeString($_POST['question17_type']) . "'," . "'" . 
+					SanitizeString($_POST['question17_answer']) . "'," . "'" .
+					SanitizeString($_POST['question18_question']) . "'," . "'" . 
+					SanitizeString($_POST['question18_a']) . "'," . "'" . 
+					SanitizeString($_POST['question18_b']) . "'," . "'" . 
+					SanitizeString($_POST['question18_c']) . "'," . "'" . 
+					SanitizeString($_POST['question18_d']) . "'," . "'" . 
+					SanitizeString($_POST['question18_type']) . "'," . "'" . 
+					SanitizeString($_POST['question18_answer']) . "'," . "'" . 
+					SanitizeString($_POST['question19_question']) . "'," . "'" . 
+					SanitizeString($_POST['question19_a']) . "'," . "'" . 
+					SanitizeString($_POST['question19_b']) . "'," . "'" .
+					SanitizeString($_POST['question19_c']) . "'," . "'" . 
+					SanitizeString($_POST['question19_d']) . "'," . "'" . 
+					SanitizeString($_POST['question19_type']) . "'," . "'" . 
+					SanitizeString($_POST['question19_answer']) . "'," . "'" . 
+					SanitizeString($_POST['question20_question']) . "'," . "'" . 
+					SanitizeString($_POST['question20_a']) . "'," . "'" . 
+					SanitizeString($_POST['question20_b']) . "'," . "'" . 
+					SanitizeString($_POST['question20_c']) . "'," . "'" . 
+					SanitizeString($_POST['question20_d']) . "'," . "'" . 
+					SanitizeString($_POST['question20_type']) . "'," . "'" . 
+					SanitizeString($_POST['question20_answer']) . "')";
 					send_query($conn3, $sql);
 					echo "<meta http-equiv='refresh' content='0'>";
 			}
